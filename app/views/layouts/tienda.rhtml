@@ -1,0 +1,123 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es" lang="es" />
+<head>
+  <meta http­equiv="Content­Type" content="text/html; charset=utf­8" />
+  <meta name="subject" content="Moda, complementos, serigrafía, camisetas." />
+  <meta name="Description" content=
+  "Vendidos es la tienda online de Hola Por Qué, nos dedicamos a la serigrafía artística, diseños propios." />
+  <meta name="Keywords" content="Moda, complementos, serigrafía, camisetas." />
+  <meta name="Geography" content="Madrid, Spain" />
+  <meta name="Language" content="Spanish" />
+  <meta http-equiv="CACHE-CONTROL" content="PUBLIC" />
+  <meta name="Webmaster" content="Fernando Guillen" />
+  <meta name="distribution" content="Local" />
+  <meta name="Robots" content="INDEX,FOLLOW" />
+  <meta name="city" content="Madrid" />
+  <meta name="country" content="Spain" />
+
+  <%= stylesheet_link_tag 'tienda', 'pruebas', :media => 'all' %>
+    
+  <title>Tienda de Hola Por Qué, serigrafía artística y camisetas</title>
+</head>
+<body>
+  <div id="contenedor">
+    <a href="/camisetas/portada">
+    <div id="cabecera">
+        <h1>Hola Por Que presenta: 'vendidos' la tienda de serigrafía artística y camisetas</h1>
+    </div>
+  </a>
+    <div id="menu">
+      <ul>
+        <% for categoria in render_categorias %>
+         <li><%= link_to categoria, :action => 'buscar_por_categoria', :controller => 'camisetas' , :categoria => categoria %></li>
+        <% end %>
+        
+         <li><%= link_to render_ver_todas, :action => 'listar_todas', :controller => 'camisetas' %></li>
+      </ul>
+    </div>
+    <div id="buscadores">
+      <div>
+      listado de lo disponible
+      <% form_tag :controller => 'camisetas', :action => 'buscar_por_id' do %>
+      <select name="id">
+        <% for camiseta in todas_las_camisetas.sort{ |k, e| k.nombre <=> e.nombre } %>
+          <option value="<%= camiseta.id %>"><%= camiseta.nombre %></option>
+        <% end %> 
+      </select>
+      <%= submit_tag "mostrar" %>
+      <% end %>
+      </div>
+      <div>
+      buscar algo en concreto
+      <% form_tag :controller => 'camisetas', :action => 'buscar_por_nombre' do %>
+      <input type="text" name="nombre" />
+      <%= submit_tag "buscar" %>
+      <% end %>
+      </div>
+      
+      <div id="carrito">
+        <%= link_to "cesta: #{dinero_en_carrito}€", :controller => 'carrito', :action => 'ver' %> 
+      </div>
+    </div>
+  
+  <!-- ALERTAS -->
+  <% if flash[:info] %>
+      <div id="alertas-info">
+        <%= flash[:info] %>
+      </div>
+  <% end %>
+  
+  <% if flash[:error] %>
+    <div id="alertas-error">
+      <%= flash[:error] %>
+    </div>
+  <% end %>
+  
+    <div id="contenido">
+      <%= yield %> 
+    </div>
+    <div id="pie">
+    <% if session[:role] == 'admin' %>
+        <ul class="administracion">
+         <li><%= link_to 'Pedidos', :action => 'list', :controller => 'pedidos' %></li>
+         <li><%= link_to 'Nueva camiseta', :action => 'new' %></li>
+         <li><%= link_to 'Editar categorías', :controller => 'categorias', :action => 'edit' %></li>
+         <li><%= link_to 'Salir', :controller => 'login', :action => 'salir' %></li>
+        </ul>
+    <% end %>
+      <ul class="pie_links">
+        <li><%= link_to 'Por qué existe esto', :controller => 'ayuda', :action => 'porque' %></li>
+        <li><%= link_to 'Los intríngulis de las tallas', :controller => 'ayuda', :action => 'tallas' %></li>
+        <li><%= link_to 'Formas de pago y Gastos de envío', :controller => 'ayuda', :action => 'formas_pago' %></li>
+        <li><%= link_to 'Manejo de la privacidad', :controller => 'ayuda', :action => 'privacidad' %></li>
+        <li><%= link_to 'A dónde vamos después de morir', :controller => 'ayuda', :action => 'despues_morir' %></li>
+        <li><%= link_to "www.holaporque.com", "http://www.holaporque.com/" %></li>        
+      </ul>
+      <p>
+        <strong><i>vendidos</i></strong> es la tienda virtual de <strong>HOLA POR QUÉ</strong>. 
+        Todos los derechos reservados, secretos
+        y confidenciales por siempre jamás. Y que no me entere yo.
+      </p>
+      <p>
+        <strong>HOLA POR QUÉ</strong>. C/ Nicolás Morales 38, 3º 8. 28019 Madrid. Tel y fax: 91 225 77 86.
+        <%= mail_to "holaporque@holaporque.com" %>. <%= link_to "www.holaporque.com", "http://www.holaporque.com/" %>.
+      </p>
+    </div>
+  </div>
+  
+<!-- google analytics -->
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-3693108-1");
+pageTracker._initData();
+pageTracker._trackPageview();
+</script>
+<!-- google analytics -->
+
+</body>
+</html>

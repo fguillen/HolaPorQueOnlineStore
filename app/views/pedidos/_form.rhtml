@@ -1,0 +1,34 @@
+<%= error_messages_for 'pedido' %>
+
+<!--[form:pedido]-->
+<p><label for="pedido_usuarioNombre">Usuarionombre</label><br/>
+<%= text_field 'pedido', 'usuarioNombre'  %></p>
+
+<p><label for="pedido_usuarioDireccion">Usuariodireccion</label><br/>
+<%= text_field 'pedido', 'usuarioDireccion'  %></p>
+
+<p><label for="pedido_usuarioTelefono">Usuariotelefono</label><br/>
+<%= text_field 'pedido', 'usuarioTelefono'  %></p>
+
+<p><label for="pedido_usuarioEmail">Usuarioemail</label><br/>
+<%= text_field 'pedido', 'usuarioEmail'  %></p>
+
+<p><label for="pedido_usuarioComentario">Usuariocomentario</label><br/>
+<%= text_area 'pedido', 'usuarioComentario'  %></p>
+
+<p><label for="pedido_fecha">Fecha</label><br/>
+<%= datetime_select 'pedido', 'fecha'  %></p>
+
+<p><label for="pedido_estado">Estado</label><br/>
+<%= text_field 'pedido', 'estado'  %></p>
+
+<p><label for="pedido_lineasPedido">Lineaspedido</label><br/>
+<%= text_area 'pedido', 'lineasPedido'  %></p>
+
+<p><label for="pedido_gastosEnvio">Gastosenvio</label><br/>
+<%= text_field 'pedido', 'gastosEnvio'  %></p>
+
+<p><label for="pedido_total">Total</label><br/>
+<%= text_field 'pedido', 'total'  %></p>
+<!--[eoform:pedido]-->
+

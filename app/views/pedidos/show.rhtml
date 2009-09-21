@@ -1,0 +1,51 @@
+<h1>Ver pedido</h1>
+
+ <table id="tabla_carrito">
+ 	<thead>
+ 	<tr id="fila_cabeceras">
+		<td class="col_producto">Producto</td>
+		<td class="col_cantidad">Cantidad</td>
+		<td class="col_precio_unidad">Precio&nbsp;Unidad</td>
+		<td class="col_precio_total">Precio&nbsp;Total</td>
+	</tr>
+	</thead>
+
+	<tbody>
+	<% for lineaPedido in @pedido.lineas_pedido_parseadas %>
+	<tr>					
+		<td class="col_producto"><strong> <%= lineaPedido.camisetaNombre %></strong> <br /> <%= lineaPedido.camisetaModelo %></td>
+		<td class="col_cantidad"><%= lineaPedido.cantidad %></td>
+		<td class="col_precio_unidad"><strong><%= lineaPedido.precio %>&nbsp;€</strong></td>
+		<td class="col_precio_total"><strong><%= lineaPedido.total %>&nbsp;€</strong></td>
+	</tr>
+
+	<% end %>
+
+	<tr class="fila_subtotal">
+		<td colspan="3" class="col_subtotal">Subtotal</td>
+		<td class="col_precio_total"><strong><%= @pedido.subtotal %>&nbsp;€</strong></td>
+	</tr>
+
+	<tr class="fila_gastos_envio">
+		<td colspan="3" class="col_gastos_envio">Gastos de envío</td>
+		<td class="col_precio_total"><strong><%= @pedido.gastosEnvio %>&nbsp;€</strong></td>
+	</tr>					
+	<tr class="fila_total">
+		<td colspan="3" class="col_total">Total</td>
+		<td class="col_precio_total"><strong><%= @pedido.total %>&nbsp;€</strong></td>
+
+	</tr>	
+	</tbody>		
+</table>
+
+<div id="datos_usuario_pedido">
+<p><strong>Nombre:</strong> <%= @pedido.usuarioNombre %></p>
+<p><strong>Dirección:</strong> <%= @pedido.usuarioDireccion %></p>
+<p><strong>Email:</strong> <%= @pedido.usuarioEmail %></p>
+<p><strong>Teléfono:</strong> <%= @pedido.usuarioTelefono %></p>
+<p><strong>Comentario:</strong> <%= @pedido.usuarioComentario %></p>
+<p><strong>Fecha:</strong> <%= @pedido.fecha %></p>
+<p><strong>Es de prueba:</strong> <%= @pedido.esBroma %></p>
+</div>
+
+<%= link_to 'Re-enviar email', :action => 'enviar_email', :id => @pedido %>

@@ -1,0 +1,462 @@
+#alertas-info{
+	clear: left;
+	margin: 40px 20px 0px 20px;
+	font-weight: bold;
+	border: 3px dotted white;
+	padding: 10px;
+}
+
+#alertas-error{
+	clear: left;
+	margin: 40px 20px 0px 20px;
+	font-weight: bold;
+	border: 3px dotted red;
+	padding: 10px;
+}
+
+#buscadores div{
+float: left;
+}
+
+#carrito{
+text-align: right;
+font-size: 20px;
+font-weight: bold;
+}
+
+
+
+
+#buscadores #carrito{
+padding-top: 15px;
+padding-left: 105px;
+}
+
+#carrito a{
+color: black;
+text-decoration: none;
+}
+
+#carrito a:hover{
+	text-decoration: underline;
+}
+
+body{
+text-align: center;
+margin: 0px auto;
+  font-family: arial, verdana, helvetica, sans-serif;
+  font-size:   13px;
+  line-height: 18px;
+}
+
+#menu{
+  padding: 10px 20px 10px 45px;
+  width:884px;
+}
+
+#menu li{
+display: inline;
+text-transform: uppercase;
+border-left: 1px solid black;
+margin-left: 5px;
+padding-left: 5px;
+}
+
+#menu li:first-child{
+  border: 0px;
+  margin-left: 0px;
+  padding-left: 0px;
+}
+
+
+
+
+#menu ul{
+list-style-type: disc
+}
+
+#menu a:hover,
+#menu a:active,
+#menu a:link,
+#menu a:visited {
+color: black;
+text-decoration:none;
+
+}
+
+#menu a:hover{
+text-decoration:underline;
+}
+
+
+/*
+*
+* portada
+*
+*/
+img.foto_portada{
+width: 167px;
+}
+
+.camiseta_portada{
+margin: 5px 10px 5px 0px;
+float: left;
+width: 167px;
+height: 250px;
+}
+
+.camiseta_portada h3{
+margin: 0px;
+padding: 0px;
+text-align: right;
+text-transform: uppercase;
+font-size: 10px;
+font-weight: normal;
+line-height: 10px;
+}
+
+
+.camiseta_portada .precios{
+line-height: 12px;
+margin: 0px;
+text-align: right;
+text-transform: uppercase;
+font-size: 12px;
+font-weight: normal;
+}
+
+.camiseta_portada img{
+border: 0px;
+}
+
+
+
+/*
+*
+* camiseta
+*
+*/ 
+
+.camiseta{
+margin: 10px 0px;
+clear:left;
+width: 884px;
+height: 347px;
+background: url("../images/separador_camiseta.jpg") no-repeat bottom;
+padding-bottom: 20px;
+position: relative;
+}
+
+.camiseta-descripcion{
+  margin-left: 270px;
+  position:absolute;
+  bottom:20px;
+}
+
+.camiseta p{
+font-family: Arial;
+}
+
+
+.camiseta img.principal {
+float:left;
+margin-right: 10px;
+}
+
+
+ul.minis {
+  margin: 0px;
+}
+
+ul.minis li {
+display:inline;
+}
+
+ul.admin li {
+display:inline;
+}
+
+img.mini{
+  width: 110px;
+border: 0px;
+}
+
+.precio{
+	display: inline;
+	font-weight: bold;
+	font-size: 2em;
+	vertical-align: -18%;
+}
+
+.controles{
+  margin-top: 10px;
+}
+
+#contenedor{
+text-align: left;
+margin:0 auto 0 auto;
+width: 984px;
+background-color: #dad7ec;
+
+}
+#cabecera{
+	background-image: url( "../images/cabecera.jpg" );
+	height:222px;
+}
+
+#cabecera h1{
+	display: none;
+}
+
+#buscadores{
+padding: 10px 20px 10px 45px;
+}
+
+#buscadores div{
+/*float: left;*/
+margin-right: 20px;
+}
+
+
+
+#contenido{
+padding: 10px 20px 10px 45px;
+clear: left;
+}
+
+
+#pie{
+clear: left;
+}
+/*
+*
+* carrito
+*
+*/
+#tabla_carrito{
+width: 876px;
+border-collapse:collapse;
+border:none;
+}
+
+#tabla_carrito tr{
+background: url("../images/separador_carrito.jpg" ) no-repeat bottom;
+
+}
+
+#tabla_carrito td{
+padding-bottom: 21px;
+}
+
+#tabla_carrito tr.fila_subtotal td,
+#tabla_carrito tr.fila_gastos_envio td,
+#tabla_carrito tr.fila_total td{
+height: 40px;
+padding-bottom: 0px;
+}
+
+#tabla_carrito thead{
+text-transform: uppercase;
+}
+
+td.col_producto{
+width: 470px;
+text-align: left;
+padding-left: 30px;
+}
+
+td.col_producto strong{
+text-transform: uppercase;
+}
+
+td.col_cantidad{
+width: 90px;
+text-align: center;
+}
+
+
+td.col_precio_unidad{
+width: 105px;
+text-align: center;
+}
+
+td.col_precio_total{
+width: 105px;
+text-align: center;
+}
+
+td.col_borrar{
+width: 106px;
+text-align: center;
+}
+
+#tabla_carrito tr.fila_subtotal, 
+#tabla_carrito tr.fila_gastos_envio,
+#tabla_carrito tr.fila_total
+{
+background: none;
+}
+
+.col_borrar>form>input{
+border:0px;
+}
+
+#tabla_carrito .col_subtotal, 
+#tabla_carrito .col_gastos_envio,
+#tabla_carrito .col_total
+{
+text-align: right;
+padding-right: 20px;
+text-transform: uppercase;
+
+}
+
+
+
+#tabla_carrito .fila_total .col_precio_total {
+text-align: right;
+font-size: 30px;
+}
+
+#tabla_carrito tr.fila_total {
+background: url("../images/carrito_fondo_total.jpg" ) no-repeat top right;
+}
+
+ul.carrito_links {
+margin: 50px 0px;
+padding: 0px;
+}
+
+ul.carrito_links li{
+display: inline;
+background-color: #fff;
+padding: 2px 5px;
+margin: 0px 0px 0px 0px;
+text-transform: uppercase;
+}
+
+ul.carrito_links li a{
+text-decoration: none;
+color: #000;
+}
+
+
+
+ul.carrito_links li a:hover{
+text-decoration: underline;
+}
+
+
+ul.carrito_links .peque{
+font-size: 6px;
+margin-left: 6px;
+}
+
+
+
+/*
+*
+* pie
+*
+*/
+
+#pie{
+text-align: center;
+padding-bottom: 20px;
+}
+
+#pie ul.pie_links{
+margin: 10px 0px;
+padding: 0px;
+font-size: 10px;
+
+}
+
+#pie ul.pie_links a{
+text-decoration: none;
+color: #000;
+}
+
+#pie ul.pie_links a:hover{
+text-decoration: underline;
+}
+
+#pie ul.pie_links li{
+display: inline;
+border-right: 1px solid black;
+padding-right: 3px;
+}
+
+
+#pie p{
+color: #fff;
+font-size: 10px;
+line-height: 12px;
+margin: 0px;
+}
+
+#pie p a{
+color: #fff;
+text-decoration: none;
+}
+
+/*
+*
+* formularios
+*
+*/
+input, select, textarea {
+border: 1px solid black;
+}
+
+#enviar_pedido input,
+#enviar_pedido textarea{
+font-size: 20px;
+}
+
+
+#enviar_pedido{
+margin-left: 100px;
+}
+
+
+
+/*
+*
+* pedidos
+*
+*/
+#datos_usuario_pedido{
+font-size: 20px;
+margin: 100px 0 20px 30px;
+}
+
+#datos_usuario_pedido p {
+margin: 5px 0px;
+}
+
+
+
+/*
+*
+* editar camiseta
+*
+*/
+
+#camiseta_formulario{
+margin-left: 50px;
+}
+
+.camiseta_elemento_formulario textarea{
+width: 500px;
+height: 100px;
+}
+
+textarea.grande{
+  width: 300px;
+  height: 200px;
+}
+
+
+
+

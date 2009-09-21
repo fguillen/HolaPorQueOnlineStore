@@ -1,0 +1,10 @@
+<h1>Editar camiseta</h1>
+
+<div id="camiseta_formulario">
+	<% form_tag :action => 'update', :id => @camiseta do %>
+	  <%= render :partial => 'form' %>
+	  <%= submit_tag 'Editar' %>
+	<% end %>
+</div>
+
+

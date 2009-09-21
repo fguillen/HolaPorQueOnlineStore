@@ -1,0 +1,16 @@
+<h2>Portada</h2>
+
+<% for camiseta in @camisetas %>
+	
+		<div class="camiseta_portada">
+			<a href="/camisetas/buscar_por_id/<%= camiseta.id %>">
+				<%= image_tag camiseta.foto_principal, :class => 'foto_portada' %>
+			</a>
+			
+			<h3><%= camiseta.nombre %></h3>
+			<p class="precios">
+				<%= camiseta.precio_min %>-<%= camiseta.precio_max %> &nbsp;€
+			</p>
+		</div>
+<% end %>
+

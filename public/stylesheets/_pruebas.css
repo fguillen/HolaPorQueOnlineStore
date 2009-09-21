@@ -1,0 +1,97 @@
+/*CLASES CARRO*/
+.cantidad{text-align:center;}
+.cantidad input {margin-bottom:3px;}	
+
+.subtotal{color:#E82D54;}
+.subtotal td{ background-color:#FFFFEE;}
+
+.iva{/*color:#896186;*/ color:#B73E58;} 
+
+.total{color:#D02D54;}
+.total td{ background-color:#FFFFEE; font-weight:bold;}
+
+#comentarios {
+    padding:10px;
+    font-size:75%;
+    color:#A77A55;
+    }
+    
+.campo30 {width:25px; height:15px; text-align:right; padding-right:3px;}    
+
+input {
+	text-align:left; 
+	padding-left:3px;
+	border:solid 1px #AC9F98; 
+}
+
+textarea {
+	text-align:left; 
+	padding-left:3px;
+	border:solid 1px #AC9F98; 
+}
+
+
+.dh600{
+	width:628px;
+	height:20px;
+	background:transparent url(/images/nurbijou/separador_univ.gif) repeat-x left center;
+	clear:both;
+	}
+
+/*CLASES CESTA DE LA COMPRA*/
+
+.tabla_carrito {
+	border-collapse:collapse;
+	width:628px;
+	border:none;
+}
+
+#r1 td{
+	padding-top:0px;
+	color:#A77A55;
+	}
+td{	border-bottom:solid 1px #CCCCCC;	
+	padding:15px 5px 0 5px;
+	background:url(/images/separador_univ.gif) repeat-y right top;
+	vertical-align:baseline;
+	}
+.col1{width:15px; text-align:center;}
+.col2 {width:55px;}
+.col3 {width:55px;
+	text-align:right;
+	padding-right:10px;
+	}
+.col4 {
+	text-align:right;
+	padding-right:10px;
+	}
+
+.bots2 {
+	margin-top:100px;
+	width:95px;
+	float:left;
+	padding:0px 0px 0px 10px;
+	}
+.bots2 ul {
+	padding:0px;
+	margin:0px;
+	}
+.bots2 ul li{
+	/*margin-bottom:-3px;*/
+	padding:0px 2px 10px 2px;
+	text-align:center;
+	}
+.carro ul.inline2 {
+	/*width:500px;
+	float:left;*/
+	padding:0px;
+	margin:0px;
+	}
+.carro ul.inline2 li {
+	padding:0 12px 20px 12px;
+	line-height:2em;
+	text-align:center;
+	}
+
+	
+

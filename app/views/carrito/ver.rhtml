@@ -1,0 +1,80 @@
+		<h2>En la cesta</h2>
+		<div>
+
+				 <table id="tabla_carrito">
+				 	<thead>
+				 	<tr id="fila_cabeceras">
+						<td class="col_producto">Producto</td>
+						<td class="col_cantidad">Cantidad</td>
+						<td class="col_precio_unidad">Precio&nbsp;Unidad</td>
+						<td class="col_precio_total">Precio&nbsp;Total</td>
+					</tr>
+					</thead>
+					
+					<tbody>
+					<% @subtotal = 0 %>
+					<% indice = 0 %>
+					<% for carrito in @carrito %>
+					<tr>
+				 							
+				 							
+						<td class="col_producto"><strong> <%= carrito.camisetaNombre %></strong> <br /> <%= carrito.camisetaModelo %></td>
+						<td class="col_cantidad">
+							<% form_tag :controller => 'carrito', :action => 'actualizar' do %>
+							<input name="indice" type="hidden" value="<%= indice %>"/>
+							<select name="cantidad" onchange="this.form.submit()">
+								<% cantidad( carrito.camisetaId, carrito.camisetaModelo ).to_i.times do |n| %>
+									<% if (n+1) == carrito.cantidad.to_i %>
+										<option value="<%= n+1 %>" selected="true"><%= n+1 %></option>
+									<% else %>
+										<option value="<%= n+1 %>"><%= n+1 %></option>
+									<% end %>
+								<% end %>
+							</select>
+							<% end %>
+						</td>
+						<td class="col_precio_unidad"><strong><%= carrito.precio %>&nbsp;€</strong></td>
+						<td class="col_precio_total"><strong><%= carrito.precio.to_i * carrito.cantidad.to_i %>&nbsp;€</strong></td>
+						<td class="col_borrar">
+							<% form_tag :controller => 'carrito', :action => 'borrar' do %>
+								<input name="indice" type="hidden" value="<%= indice %>"/>
+								<input type="image" value="borrar" src="/images/carrito_boton_borrar.jpg" alt="Borrar" name="borrar"> 
+							<% end %>
+						</td>
+
+					</tr>
+			
+					<% @subtotal = @subtotal + ( carrito.precio.to_i * carrito.cantidad.to_i ) %>
+					<% indice = indice+1 %>
+					<% end %>
+				
+					<tr class="fila_subtotal">
+						<td colspan="3" class="col_subtotal">Subtotal</td>
+						<td class="col_precio_total"><strong><%= @subtotal %>&nbsp;€</strong></td>
+						<td class="col_borrar"></td>
+					</tr>
+	
+					<tr class="fila_gastos_envio">
+
+						<td colspan="3" class="col_gastos_envio">Gastos de envío</td>
+						<td class="col_precio_total"><strong>10&nbsp;€</strong></td>
+						<td class="col_borrar"></td>
+					</tr>					
+					<tr class="fila_total">
+						<td colspan="3" class="col_total">Total</td>
+						<td class="col_precio_total"><strong><%= @subtotal + 10 %>&nbsp;€</strong></td>
+						<td class="col_borrar"></td>
+					</tr>
+					</tbody>
+				</table>
+
+				<ul class="carrito_links">
+					<li><%= link_to 'Seguir comprando', :controller => 'camisetas', :action => 'listar_todas' %><span class="peque">(Que aún tengo dinero)</span></li>
+					<li><%= link_to 'Vaciar carrito', :controller => 'carrito', :action => 'vaciar' %><span class="peque">(Que no tengo dinero)</span></li>
+					<li><%= link_to 'Completar pedido', :controller => 'carrito', :action => 'completar_pedido' %><span class="peque">(Antes de que me arrepienta)</span></li>
+				</ul>
+
+
+
+
+	

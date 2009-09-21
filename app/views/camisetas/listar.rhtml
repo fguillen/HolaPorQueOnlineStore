@@ -1,0 +1,124 @@
+<h2>Listado de camisetas y demás cosas a comprar</h2>
+
+<script>
+	function cambiarFoto( fotoOrigenId, fotoDestinoId ){
+		var fotoOrigen = document.getElementById( fotoOrigenId );
+		var fotoDestino = document.getElementById( fotoDestinoId );
+		
+		var fotoDestinoSrc = fotoDestino.src;
+		fotoDestino.src = fotoOrigen.src;
+		fotoOrigen.src = fotoDestinoSrc;
+	}
+</script>
+
+<% for camiseta in @camisetas %>
+	<div class="camiseta">
+		<%= image_tag camiseta.foto_principal, :class => 'principal', :id => "foto_camiseta_#{camiseta.id}" %>
+    <div class="camiseta-descripcion">
+  		<h3><%= camiseta.nombre %></h3>
+  		<p><%= camiseta.texto %></p>
+		
+  		<ul class="minis">
+  			<% indice = 0 %>
+  			<% for foto in camiseta.fotos_secundarias %>
+  				<% indice = indice + 1 %>
+  				<li><a href="javascript:cambiarFoto('<%= "foto_camiseta_#{camiseta.id}" %>', '<%= "foto_camiseta_mini_#{camiseta.id}_#{indice}" %>')"><%= image_tag foto, :class => 'mini', :id =>  "foto_camiseta_mini_#{camiseta.id}_#{indice}" %></a></li>
+  			<% end %>
+  		</ul>
+		
+		
+  		<script language="JavaScript">
+		
+  			var precioCamiseta_<%= camiseta.id %> = 0;
+			
+  			var modelos_<%= camiseta.id %> = new Array();
+  			<% n=0 %>
+  			<% for modelo in camiseta.lista_modelos %>
+  			modelos_<%= camiseta.id %>[<%= n %>] = new Array();
+  			modelos_<%= camiseta.id %>[<%= n %>][0] = "<%= modelo.modelo %>";
+  			modelos_<%= camiseta.id %>[<%= n %>][1] = "<%= modelo.cantidad %>";
+  			modelos_<%= camiseta.id %>[<%= n %>][2] = "<%= modelo.precio %>";
+  			<% n = n+1 %>
+  			<% end %>
+			
+  			function cambiarModeloCamiseta_<%= camiseta.id %>( indice ){
+  				document.getElementById( "cantidad_<%= camiseta.id %>" ).options.length=0;
+				
+  				if( modelos_<%= camiseta.id %>[indice][1] == 0 ) {
+  					document.getElementById( "cantidad_<%= camiseta.id %>" ).options[0]=
+  						new Option(
+  							0, 
+  							0, 
+  							true, 
+  							false
+  						);
+  				}
+				
+  				for( n=1; n<=modelos_<%= camiseta.id %>[indice][1]; n++) {
+  					document.getElementById( "cantidad_<%= camiseta.id %>" ).options[n-1]=
+  						new Option(
+  							n, 
+  							n, 
+  							true, 
+  							false
+  						);
+  				}
+				
+  				precioCamiseta_<%= camiseta.id %> = modelos_<%= camiseta.id %>[indice][2];
+
+  				cambiarPrecioCamiseta_<%= camiseta.id %>();
+  			}
+			
+  			function cambiarPrecioCamiseta_<%= camiseta.id %>(){
+  				indice = document.getElementById( "cantidad_<%= camiseta.id %>" ).selectedIndex;
+  				cantidad = document.getElementById( "cantidad_<%= camiseta.id %>" ).options[indice].value;
+  				document.getElementById( "precio_<%= camiseta.id %>" ).innerHTML = 
+  					(precioCamiseta_<%= camiseta.id %>*cantidad) + "€" ;
+  			}
+  		</script>
+
+  		<div class="controles">
+  			<% form_tag :controller => 'carrito', :action => 'anadir' do %>
+  				<input type="hidden" name="camisetaId" value="<%= camiseta.id %>" />
+  				<select id="modelo_<%= camiseta.id %>" name="modelo">
+  					<% n=0 %>
+  					<% for modelo in camiseta.lista_modelos %>
+  					<option 
+  						value="<%= modelo.modelo %>" 
+  						onclick="cambiarModeloCamiseta_<%= camiseta.id %>( <%= n %> )"
+  						<% if n==0 %>selected="selected"<% end %>
+  					>
+  						<%= modelo.modelo %>
+  					</option>
+  					<% n = n+1 %>
+  					<% end %>
+  				</select>
+
+  				<select id="cantidad_<%= camiseta.id %>" name="cantidad" onchange="cambiarPrecioCamiseta_<%= camiseta.id %>()">
+  					<option value="0">0</option>
+  				</select>
+				
+  				<div class="precio" id="precio_<%= camiseta.id %>">0$</div>
+				
+  				<script>
+  					cambiarModeloCamiseta_<%= camiseta.id %>( 0 );
+  				</script>
+		
+  				<%= submit_tag "Pal Carro" %>
+  			<% end %>
+  		</div> <!-- camiseta-descripcion -->
+  		<% if session[:role] == 'admin' %>
+  		<ul class="admin">
+  			<li><%= link_to 'Editar', :action => 'edit', :id => camiseta %></li>
+  			<li><%= link_to 'Borrar', { :action => 'destroy', :id => camiseta }, :confirm => '¿Seguro que la quieres borrar?', :method => :post %></li>
+  		</ul>
+  		<% end %>
+		</div>
+		
+
+		
+	</div>
+	
+
+<% end %>
+

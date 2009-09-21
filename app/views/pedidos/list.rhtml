@@ -1,0 +1,25 @@
+<h1>Listing pedidos</h1>
+
+
+<table>
+	<tr>
+		<th>id</th>
+		<th>usuario</th>
+		<th>fecha</th>
+		<th>estado</th>
+		<th>total</th>
+		<th>mostrar</th>
+	</tr>
+
+	<% for pedido in @pedidos %>
+	<tr>
+		<td><%= pedido.id %></td>
+		<td><%= pedido.usuarioNombre %></td>
+		<td><%= pedido.fecha %></td>
+		<td><%= pedido.estado %></td>
+		<td><%= pedido.total %></td>
+		<td><%= link_to 'Ver', :action => 'show', :id => pedido %></td>
+	</tr>	
+	<% end %>
+</table>
+

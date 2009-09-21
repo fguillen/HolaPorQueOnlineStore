@@ -1,0 +1,48 @@
+<h1>Pedido Enviado</h1>
+
+ <table class="tabla_carrito">
+ 	<tr id="r1">
+		<td style="width:300px;">camiseta</td>
+		<td style="width:300px;">modelo</td>
+		<td class="col2">cantidad</td>
+		<td class="col3">Precio&nbsp;Unidad</td>
+		<td class="col3">Precio&nbsp;Total</td>								
+	</tr>
+
+	<% for lineaPedido in @pedido.lineas_pedido_parseadas %>
+	<tr>					
+		<td><%= lineaPedido.camisetaNombre %></td>
+		<td><%= lineaPedido.camisetaModelo %></td>
+		<td class="cantidad"><%= lineaPedido.cantidad %></td>
+		<td class="col3"><%= lineaPedido.precio %>&nbsp;€</td>
+		<td class="col3"><%= lineaPedido.total %>&nbsp;€</td>
+	</tr>
+
+	<% end %>
+
+	<tr class="subtotal">
+		<td colspan="4" class="col4">Subtotal</td>
+		<td class="col3"><strong><%= @pedido.subtotal %>&nbsp;€</strong></td>
+	</tr>
+
+	<tr class="iva">
+		<td colspan="4" class="col4">Gastos de envío</td>
+		<td class="col3"><strong><%= @pedido.gastosEnvio %>&nbsp;€</strong></td>
+	</tr>					
+	<tr class="total">
+		<td colspan="4" class="col4">Total</td>
+		<td class="col3"><%= @pedido.total %>&nbsp;€</td>
+
+	</tr>			
+</table>
+
+<p><strong>Nombre:</strong> <%= @pedido.usuarioNombre %></p>
+<p><strong>Dirección:</strong> <%= @pedido.usuarioDireccion %></p>
+<p><strong>Email:</strong> <%= @pedido.usuarioEmail %></p>
+<p><strong>Teléfono:</strong> <%= @pedido.usuarioTelefono %></p>
+<p><strong>Comentario:</strong> <%= @pedido.usuarioComentario %></p>
+<p><strong>Fecha:</strong> <%= @pedido.fecha %></p>
+<p><strong>Es de prueba:</strong> <%= @pedido.esBroma %></p>
+
+
+<%= link_to 'Seguir comprando', :controller => 'camisetas', :action => 'listar_todas' %>
