@@ -77,7 +77,7 @@ class CarritoController < ApplicationController
      @pedido.usuarioTelefono = params[:usuario]["telefono"]
 	  	@pedido.usuarioComentario = params[:usuario]["comentario"]
 		  @pedido.fecha = DateTime.now
-      @pedido.esBroma = params[:pedido]["esBroma"]
+      @pedido.esBroma = params[:pedido]["esBroma"]  if params[:pedido]
       
       if @pedido.esBroma == nil
         @pedido.esBroma = 0
