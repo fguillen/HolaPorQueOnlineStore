@@ -55,7 +55,7 @@
 	<%= text_field 'usuario', 'nombre'  %></p>
 	
 	<p><label for="usuario_direccion">Direccion</label> <small>(Indicar dirección completa con calle, ciudad, código postal y país)<br/>
-	<%= text_area 'usuario', 'direccion'  %></p>
+	<%= text_area 'usuario', 'direccion', :rows => 5  %></p>
 
 	<p><label for="usuario_email">Email</label><br/>
 	<%= text_field 'usuario', 'email'  %></p>
@@ -66,8 +66,8 @@
 	<p><label for="usuario_comentario">Comentarios o notas sobre tu pedido</label><br/>
 	<%= text_area 'usuario', 'comentario', :rows => 3  %></p>
 	
-	<p><label for="es_broma">Es un pedido de prueba</label><br/>
-	<%= check_box 'pedido', 'esBroma'  %></p>
+  <!-- <p><label for="es_broma">Es un pedido de prueba</label><br/>
+  <%= check_box 'pedido', 'esBroma'  %></p> -->
 	
 	<%= submit_tag 'enviar pedido' %>
 <% end %>
