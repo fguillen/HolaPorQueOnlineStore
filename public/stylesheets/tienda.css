@@ -47,6 +47,7 @@ margin: 0px auto;
   font-family: arial, verdana, helvetica, sans-serif;
   font-size:   13px;
   line-height: 18px;
+  background-color: #dad7ec;
 }
 
 #menu{
@@ -196,8 +197,6 @@ border: 0px;
 text-align: left;
 margin:0 auto 0 auto;
 width: 984px;
-background-color: #dad7ec;
-
 }
 #cabecera{
 	background-image: url( "../images/cabecera.jpg" );
