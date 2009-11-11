@@ -1,27 +1,10 @@
-require File.dirname(__FILE__) + '/../test_helper'
-require 'pedidos_controller'
+require 'test_helper'
 
-# Re-raise errors caught by the controller.
-class PedidosController; def rescue_action(e) raise e end; end
-
-class PedidosControllerTest < Test::Unit::TestCase
-  fixtures :pedidos
-
-  def setup
-    @controller = PedidosController.new
-    @request    = ActionController::TestRequest.new
-    @response   = ActionController::TestResponse.new
-
-    @first_id = pedidos(:first).id
-  end
-
-  def test_index
-    get :index
-    assert_response :success
-    assert_template 'list'
-  end
+class PedidosControllerTest < ActionController::TestCase
 
   def test_list
+    PedidosController.any_instance.expects(:usuario_autorizado).returns(true)
+    
     get :list
 
     assert_response :success
@@ -31,7 +14,11 @@ class PedidosControllerTest < Test::Unit::TestCase
   end
 
   def test_show
-    get :show, :id => @first_id
+    # PedidosController.any_instance.expects(:usuario_autorizado).returns(true)
+
+    pedido = Factory(:pedido)
+    
+    get :show, :id => pedido.id
 
     assert_response :success
     assert_template 'show'
@@ -40,28 +27,14 @@ class PedidosControllerTest < Test::Unit::TestCase
     assert assigns(:pedido).valid?
   end
 
-  def test_new
-    get :new
 
-    assert_response :success
-    assert_template 'new'
-
-    assert_not_nil assigns(:pedido)
-  end
-
-  def test_create
-    num_pedidos = Pedido.count
-
-    post :create, :pedido => {}
-
-    assert_response :redirect
-    assert_redirected_to :action => 'list'
-
-    assert_equal num_pedidos + 1, Pedido.count
-  end
 
   def test_edit
-    get :edit, :id => @first_id
+    PedidosController.any_instance.expects(:usuario_autorizado).returns(true)
+
+    pedido = Factory(:pedido)
+    
+    get :edit, :id => pedido.id
 
     assert_response :success
     assert_template 'edit'
@@ -71,22 +44,31 @@ class PedidosControllerTest < Test::Unit::TestCase
   end
 
   def test_update
-    post :update, :id => @first_id
+    PedidosController.any_instance.expects(:usuario_autorizado).returns(true)
+
+    pedido = Factory(:pedido)
+    
+    post :update, :id => pedido.id
+    
     assert_response :redirect
-    assert_redirected_to :action => 'show', :id => @first_id
+    assert_redirected_to :action => 'show', :id => pedido.id
   end
 
   def test_destroy
+    PedidosController.any_instance.expects(:usuario_autorizado).returns(true)
+
+    pedido = Factory(:pedido)
+    
     assert_nothing_raised {
-      Pedido.find(@first_id)
+      Pedido.find(pedido.id)
     }
 
-    post :destroy, :id => @first_id
+    post :destroy, :id => pedido.id
     assert_response :redirect
     assert_redirected_to :action => 'list'
 
     assert_raise(ActiveRecord::RecordNotFound) {
-      Pedido.find(@first_id)
+      Pedido.find(pedido.id)
     }
   end
 end

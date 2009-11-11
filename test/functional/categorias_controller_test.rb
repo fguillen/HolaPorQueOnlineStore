@@ -1,15 +1,6 @@
-require File.dirname(__FILE__) + '/../test_helper'
-require 'categorias_controller'
+require 'test_helper'
 
-class CategoriasController; def rescue_action(e) raise e end; end
-
-class CategoriasControllerTest < Test::Unit::TestCase
-
-  def setup
-    @controller = CategoriasController.new
-    @request    = ActionController::TestRequest.new
-    @response   = ActionController::TestResponse.new
-  end
+class CategoriasControllerTest < ActionController::TestCase
 
   def test_update
     post(

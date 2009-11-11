@@ -456,6 +456,25 @@ textarea.grande{
   height: 200px;
 }
 
+.col_gastos_envio select{
+text-align: right;
+background-color: #dad7ec;
+color: black;
+font-size: 10px;
+border: 1px solid white;
+padding: 5px;
+margin-left: 10px;
+
+}
 
 
+.fieldWithErrors input{
+border: 1px solid red;
+}
+
+.errorExplanation{
+width: 400px;
+border: 2px dotted red;
+padding: 10px;
+}
 

@@ -1,28 +1,10 @@
-require File.dirname(__FILE__) + '/../test_helper'
-require 'camisetas_controller'
+require 'test_helper'
 
-# Re-raise errors caught by the controller.
-class CamisetasController; def rescue_action(e) raise e end; end
+class CamisetasControllerTest < ActionController::TestCase
 
-class CamisetasControllerTest < Test::Unit::TestCase
-  fixtures :camisetas
 
-  def setup
-    @controller = CamisetasController.new
-    @request    = ActionController::TestRequest.new
-    @response   = ActionController::TestResponse.new
-
-    @first_id = camisetas(:first).id
-  end
-
-  def test_index
-    get :index
-    assert_response :success
-    assert_template 'list'
-  end
-
-  def test_list
-    get :list
+  def test_listar_todas
+    get :listar_todas
 
     assert_response :success
     assert_template 'list'
@@ -30,17 +12,21 @@ class CamisetasControllerTest < Test::Unit::TestCase
     assert_not_nil assigns(:camisetas)
   end
 
-  def test_show
-    get :show, :id => @first_id
+  def test_buscar_por_id
+    camiseta = Factory(:camiseta)
+    
+    get :buscar_por_id, :id => camiseta.id
 
     assert_response :success
-    assert_template 'show'
+    assert_template 'listar'
 
-    assert_not_nil assigns(:camiseta)
-    assert assigns(:camiseta).valid?
+    assert_not_nil assigns(:camisetas)
+    assert_equal( camiseta, assigns(:camisetas).first )
   end
 
   def test_new
+    CamisetasController.any_instance.expects(:usuario_autorizado).returns(true)
+    
     get :new
 
     assert_response :success
@@ -50,18 +36,22 @@ class CamisetasControllerTest < Test::Unit::TestCase
   end
 
   def test_create
+    CamisetasController.any_instance.expects(:usuario_autorizado).returns(true)
+    
     num_camisetas = Camiseta.count
 
-    post :create, :camiseta => {}
+    post :create, :camiseta => { :clave => 'wadus' }
 
     assert_response :redirect
-    assert_redirected_to :action => 'list'
+    assert_redirected_to :action => 'buscar_por_id', :id => assigns(:camiseta).id
 
     assert_equal num_camisetas + 1, Camiseta.count
   end
 
   def test_edit
-    get :edit, :id => @first_id
+    CamisetasController.any_instance.expects(:usuario_autorizado).returns(true)
+
+    get :edit, :id => Factory(:camiseta).id
 
     assert_response :success
     assert_template 'edit'
@@ -71,22 +61,30 @@ class CamisetasControllerTest < Test::Unit::TestCase
   end
 
   def test_update
-    post :update, :id => @first_id
+    CamisetasController.any_instance.expects(:usuario_autorizado).returns(true)
+
+    camiseta = Factory(:camiseta)
+    
+    post :update, :id => camiseta.id
     assert_response :redirect
-    assert_redirected_to :action => 'show', :id => @first_id
+    assert_redirected_to :action => 'buscar_por_id', :id => camiseta.id
   end
 
   def test_destroy
+    CamisetasController.any_instance.expects(:usuario_autorizado).returns(true)
+
+    camiseta = Factory(:camiseta)
+    
     assert_nothing_raised {
-      Camiseta.find(@first_id)
+      Camiseta.find(camiseta.id)
     }
 
-    post :destroy, :id => @first_id
+    post :destroy, :id => camiseta.id
     assert_response :redirect
-    assert_redirected_to :action => 'list'
+    assert_redirected_to :action => 'listar_todas'
 
     assert_raise(ActiveRecord::RecordNotFound) {
-      Camiseta.find(@first_id)
+      Camiseta.find(camiseta.id)
     }
   end
 end

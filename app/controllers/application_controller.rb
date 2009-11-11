@@ -6,7 +6,8 @@ class ApplicationController < ActionController::Base
   include ExceptionNotifiable
   # alias :rescue_action_locally :rescue_action_in_public
   
-  helper :all # include all helpers, all the time
+  helper :all # include all helpers, all the time                     
+  layout 'tienda'
 
   # See ActionController::RequestForgeryProtection for details
   # Uncomment the :secret if you're not using the cookie session store

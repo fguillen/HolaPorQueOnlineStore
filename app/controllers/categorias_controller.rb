@@ -1,5 +1,4 @@
 class CategoriasController < ApplicationController
-  layout 'tienda'
   
   def update
     File.open( "#{RAILS_ROOT}/config/categorias.txt", 'w' ) do |f|
@@ -7,6 +6,8 @@ class CategoriasController < ApplicationController
     end
     
     @categorias = File.read( "#{RAILS_ROOT}/config/categorias.txt" )
+    
+    flash.now[:info] = "Se han actualizado las categorías"
     
     render :action => 'edit'
   end

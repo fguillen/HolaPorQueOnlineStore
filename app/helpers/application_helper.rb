@@ -1,57 +1,57 @@
 # Methods added to this helper will be available to all templates in the application.
 module ApplicationHelper
   def precio ( camisetaId, modeloCamiseta )
-  	@camiseta = Camiseta.find( camisetaId )
-  	@precio = 0
-  	for modelo in @camiseta.modelos
-  		if modelo.index( modeloCamiseta ) == 0
-  			@precio = Modelo.new(modelo).precio
-  		end
-  	end
-  	@precio
+    @camiseta = Camiseta.find( camisetaId )
+    @precio = 0
+    for modelo in @camiseta.modelos
+      if modelo.index( modeloCamiseta ) == 0
+        @precio = Modelo.new(modelo).precio
+      end
+    end
+    @precio
   end
   
    def cantidad ( camisetaId, modeloCamiseta )
-  	@camiseta = Camiseta.find( camisetaId )
-  	@cantidad = 0
-  	for modelo in @camiseta.modelos
-  		if modelo.index( modeloCamiseta ) == 0
-  			@cantidad = Modelo.new(modelo).cantidad
-  		end
-  	end
-  	@cantidad
+    @camiseta = Camiseta.find( camisetaId )
+    @cantidad = 0
+    for modelo in @camiseta.modelos
+      if modelo.index( modeloCamiseta ) == 0
+        @cantidad = Modelo.new(modelo).cantidad
+      end
+    end
+    @cantidad
   end
   
   def todas_las_camisetas
-  	logger.debug( "helper: todas las camisetas" )
-  	camisetas = Camiseta.find(:all)
-  	logger.debug( "numero de camisetas:#{camisetas.length}" )
-  	camisetas
+    logger.debug( "helper: todas las camisetas" )
+    camisetas = Camiseta.find(:all)
+    logger.debug( "numero de camisetas:#{camisetas.length}" )
+    camisetas
   end
   
   def todas_las_categorias
-	camisetas = Camiseta.find(:all)
-  	categorias = Array.new
-  	for camiseta in camisetas
-  		if camiseta.categorias
-	  		for categoria in camiseta.categorias.split(/,|\n/)
-	  			categorias << categoria.strip
-			end
-		end
-  	end
-  	categorias.uniq.sort{ |k,e| k.downcase <=> e.downcase }
+  camisetas = Camiseta.find(:all)
+    categorias = Array.new
+    for camiseta in camisetas
+      if camiseta.categorias
+        for categoria in camiseta.categorias.split(/,|\n/)
+          categorias << categoria.strip
+      end
+    end
+    end
+    categorias.uniq.sort{ |k,e| k.downcase <=> e.downcase }
   end
   
   def dinero_en_carrito
-  	carritos = session[:carrito]
-  	total = 0
-  	if carritos
-  		for carrito in carritos
-  			total += ( carrito.precio.to_i * carrito.cantidad.to_i )
-  		end
-  		total += 10 # gastos de envio
-	end
-	total
+    carritos = session[:carrito]
+    total = 0
+    if carritos
+      for carrito in carritos
+        total += ( carrito.precio.to_i * carrito.cantidad.to_i )
+      end
+      # total += 10 # gastos de envio
+  end
+  total
   end
   
   def render_categorias

@@ -27,7 +27,7 @@
 	</tr>
 
 	<tr class="fila_gastos_envio">
-		<td colspan="3" class="col_gastos_envio">Gastos de envío</td>
+		<td colspan="3" class="col_gastos_envio">Gastos de envío: <%= @pedido.tipoEnvio %></td>
 		<td class="col_precio_total"><strong><%= @pedido.gastosEnvio %>&nbsp;€</strong></td>
 	</tr>					
 	<tr class="fila_total">
@@ -40,12 +40,14 @@
 
 <div id="datos_usuario_pedido">
 <p><strong>Nombre:</strong> <%= @pedido.usuarioNombre %></p>
+<p><strong>Ciudad:</strong> <%= @pedido.usuarioCiudad %></p>
+<p><strong>Pais:</strong> <%= @pedido.usuarioPais %></p>
+<p><strong>Código Postal / Zip:</strong> <%= @pedido.usuarioCp %></p>
 <p><strong>Dirección:</strong> <%= @pedido.usuarioDireccion %></p>
 <p><strong>Email:</strong> <%= @pedido.usuarioEmail %></p>
 <p><strong>Teléfono:</strong> <%= @pedido.usuarioTelefono %></p>
 <p><strong>Comentario:</strong> <%= @pedido.usuarioComentario %></p>
 <p><strong>Fecha:</strong> <%= @pedido.fecha %></p>
-<p><strong>Es de prueba:</strong> <%= @pedido.esBroma %></p>
 </div>
 
 <%= link_to 'Re-enviar email', :action => 'enviar_email', :id => @pedido %>

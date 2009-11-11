@@ -1,0 +1,3 @@
+Paquete Azul España, 20
+Paquete Europa, 30
+Paquete resto del Mundo, 40

@@ -9,60 +9,62 @@
 <body>
   <div id="contenedor" style="width: 500px; background-color: #dad7ec;">
     <div id="cabecera" style="height: 110px">
-    	<img src="http://<%= @host  %>/images/cabecera_email.jpg" width="500px" height="110px"/>
+      <img src="http://<%= @host  %>/images/cabecera_email.jpg" width="500px" height="110px"/>
     </div>
     <div id="contenido" style="padding: 10px 20px 10px 20px;">
     
-		
-	 <table style="font-family: verdana, arial, helvetica, sans-serif; font-size: 11px;">
-	  	<thead>
-	 	<tr id="fila_cabeceras" style="text-transform: uppercase;">
-			<td width="240px" style="pagging-left: 20px">Producto</td>
-			<td width="50px" style="text-align:center">Cantidad</td>
-			<td width="75px" style="text-align:center">Precio&nbsp;Unidad</td>
-			<td width="75px" style="text-align:center">Precio&nbsp;Total</td>
-		</tr>
-		</thead>
-		
-		<tbody>
-		<tr><td colspan="4"><img src="http://<%= @host  %>/images/separador_carrito_email.jpg"/></td></tr>
+    
+   <table style="font-family: verdana, arial, helvetica, sans-serif; font-size: 11px;">
+      <thead>
+     <tr id="fila_cabeceras" style="text-transform: uppercase;">
+      <td width="240px" style="pagging-left: 20px">Producto</td>
+      <td width="50px" style="text-align:center">Cantidad</td>
+      <td width="75px" style="text-align:center">Precio&nbsp;Unidad</td>
+      <td width="75px" style="text-align:center">Precio&nbsp;Total</td>
+    </tr>
+    </thead>
+    
+    <tbody>
+    <tr><td colspan="4"><img src="http://<%= @host  %>/images/separador_carrito_email.jpg"/></td></tr>
 
-		<% for lineaPedido in @pedido.lineas_pedido_parseadas %>
-		<tr>					
-			<td style="pagging-left: 20px"><strong> <%= lineaPedido.camisetaNombre %></strong> <br /> <%= lineaPedido.camisetaModelo %></td>
-			<td style="text-align:center"><%= lineaPedido.cantidad %></td>
-			<td style="text-align:right; padding-right: 20px"><%= lineaPedido.precio %>&nbsp;€</td>
-			<td style="text-align:right; padding-right: 20px"><%= lineaPedido.total %>&nbsp;€</td>
-		</tr>
-		<tr><td colspan="4"><img src="http://<%= @host  %>/images/separador_carrito_email.jpg"/></td></tr>
-		<% end %>
+    <% for lineaPedido in @pedido.lineas_pedido_parseadas %>
+    <tr>          
+      <td style="pagging-left: 20px"><strong> <%= lineaPedido.camisetaNombre %></strong> <br /> <%= lineaPedido.camisetaModelo %></td>
+      <td style="text-align:center"><%= lineaPedido.cantidad %></td>
+      <td style="text-align:right; padding-right: 20px"><%= lineaPedido.precio %>&nbsp;€</td>
+      <td style="text-align:right; padding-right: 20px"><%= lineaPedido.total %>&nbsp;€</td>
+    </tr>
+    <tr><td colspan="4"><img src="http://<%= @host  %>/images/separador_carrito_email.jpg"/></td></tr>
+    <% end %>
 
-		<tr>
-			<td colspan="3" style="text-align: right; padding-right: 20px; text-transform: uppercase;">Subtotal</td>
-			<td style="height: 40px; padding-bottom: 0px; text-align:right; padding-right: 20px"><%= @pedido.subtotal %>&nbsp;€</td>
-		</tr>
-		
+    <tr>
+      <td colspan="3" style="text-align: right; padding-right: 20px; text-transform: uppercase;">Subtotal</td>
+      <td style="height: 40px; padding-bottom: 0px; text-align:right; padding-right: 20px"><%= @pedido.subtotal %>&nbsp;€</td>
+    </tr>
+    
 
-		<tr>
-			<td colspan="3"  style="text-align: right; padding-right: 20px; text-transform: uppercase;">Gastos de envío</td>
-			<td style="height: 40px; padding-bottom: 0px; text-align:right; padding-right: 20px"><%= @pedido.gastosEnvio %>&nbsp;€</td>
-		</tr>					
+    <tr>
+      <td colspan="3"  style="text-align: right; padding-right: 20px; text-transform: uppercase;">Gastos de envío: <%= @pedido.tipoEnvio %></td>
+      <td style="height: 40px; padding-bottom: 0px; text-align:right; padding-right: 20px"><%= @pedido.gastosEnvio %>&nbsp;€</td>
+    </tr>          
 
-		<tr height="20px">
-			<td colspan="3" style="text-align: right; padding-right: 20px; text-transform: uppercase;">Total</td>
-			<td style="padding-bottom: 0px; text-align:right; padding-right: 20px"><strong><%= @pedido.total %>&nbsp;€</strong></td>
-		</tr>		
-		</tbody>	
-	</table>
+    <tr height="20px">
+      <td colspan="3" style="text-align: right; padding-right: 20px; text-transform: uppercase;">Total</td>
+      <td style="padding-bottom: 0px; text-align:right; padding-right: 20px"><strong><%= @pedido.total %>&nbsp;€</strong></td>
+    </tr>    
+    </tbody>  
+  </table>
 
-	<p style="font-family: verdana, arial, helvetica, sans-serif; font-size: 10px; margin: 0px"><strong>Nombre:</strong> <%= @pedido.usuarioNombre %></p>
-	<p style="font-family: verdana, arial, helvetica, sans-serif; font-size: 10px; margin: 0px"><strong>Dirección:</strong> <%= @pedido.usuarioDireccion %></p>
-	<p style="font-family: verdana, arial, helvetica, sans-serif; font-size: 10px; margin: 0px"><strong>Email:</strong> <%= @pedido.usuarioEmail %></p>
-	<p style="font-family: verdana, arial, helvetica, sans-serif; font-size: 10px; margin: 0px"><strong>Teléfono:</strong> <%= @pedido.usuarioTelefono %></p>
-	<p style="font-family: verdana, arial, helvetica, sans-serif; font-size: 10px; margin: 0px"><strong>Comentario:</strong> <%= @pedido.usuarioComentario %></p>
-	<p style="font-family: verdana, arial, helvetica, sans-serif; font-size: 10px; margin: 0px"><strong>Fecha:</strong> <%= @pedido.fecha %></p>	
-	<p style="font-family: verdana, arial, helvetica, sans-serif; font-size: 10px; margin: 0px"><strong>Es de prueba:</strong> <%= @pedido.esBroma %></p>
-	
+  <p style="font-family: verdana, arial, helvetica, sans-serif; font-size: 10px; margin: 0px"><strong>Nombre:</strong> <%= @pedido.usuarioNombre %></p>
+  <p style="font-family: verdana, arial, helvetica, sans-serif; font-size: 10px; margin: 0px"><strong>Ciudad:</strong> <%= @pedido.usuarioCiudad %></p>
+  <p style="font-family: verdana, arial, helvetica, sans-serif; font-size: 10px; margin: 0px"><strong>Pais:</strong> <%= @pedido.usuarioPais %></p>
+  <p style="font-family: verdana, arial, helvetica, sans-serif; font-size: 10px; margin: 0px"><strong>Código Postal / Zip:</strong> <%= @pedido.usuarioCp %></p>
+  <p style="font-family: verdana, arial, helvetica, sans-serif; font-size: 10px; margin: 0px"><strong>Dirección:</strong> <%= @pedido.usuarioDireccion %></p>
+  <p style="font-family: verdana, arial, helvetica, sans-serif; font-size: 10px; margin: 0px"><strong>Email:</strong> <%= @pedido.usuarioEmail %></p>
+  <p style="font-family: verdana, arial, helvetica, sans-serif; font-size: 10px; margin: 0px"><strong>Teléfono:</strong> <%= @pedido.usuarioTelefono %></p>
+  <p style="font-family: verdana, arial, helvetica, sans-serif; font-size: 10px; margin: 0px"><strong>Comentario:</strong> <%= @pedido.usuarioComentario %></p>
+  <p style="font-family: verdana, arial, helvetica, sans-serif; font-size: 10px; margin: 0px"><strong>Fecha:</strong> <%= @pedido.fecha %></p>  
+  
     </div>
   </div>
 </body>

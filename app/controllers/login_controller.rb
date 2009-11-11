@@ -1,5 +1,4 @@
 class LoginController < ApplicationController
-  layout 'tienda'
   
   def entrar
     nombre = params[:nombre]
@@ -7,7 +6,7 @@ class LoginController < ApplicationController
     
     logger.debug "login: #{nombre}, #{clave}"
     
-    if nombre == 'holaporque' and clave == "xxxx"
+    if nombre == CONFIG[:user] and clave == CONFIG[:pass]
       session[:role] = 'admin'
       flash[:info] = "Ahora eres un administrador"
       redirect_to :controller => 'camisetas', :action => 'listar_todas'

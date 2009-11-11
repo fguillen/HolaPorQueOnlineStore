@@ -1,0 +1,14 @@
+en:
+  categories:
+    title_home: "Home"
+    title_films: "Film | Short"
+    title_tv: "Television"
+    title_publicity: "Publicity"
+    title_biography: "CV | Biography"
+    title_other: "Other works"
+    title_press: "Press"
+    title_blog: "Blog"
+    title_contact: "Contact"
+
+  views:
+    film_maker: "Film Maker"

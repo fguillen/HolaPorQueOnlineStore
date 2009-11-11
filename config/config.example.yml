@@ -1,0 +1,11 @@
+development:
+  user: hola
+  pass: porque
+  
+test:
+  user: hola
+  pass: porque
+    
+production:
+  user: hola
+  pass: porque

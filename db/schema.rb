@@ -1,5 +1,5 @@
 # This file is auto-generated from the current state of the database. Instead of editing this file, 
-# please use the migrations feature of ActiveRecord to incrementally modify your database, and
+# please use the migrations feature of Active Record to incrementally modify your database, and
 # then regenerate this schema definition.
 #
 # Note that this schema.rb definition is the authoritative source for your database schema. If you need
@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 0) do
+ActiveRecord::Schema.define(:version => 20091111220050) do
 
   create_table "camisetas", :force => true do |t|
     t.string "clave",                                :null => false
@@ -21,18 +21,22 @@ ActiveRecord::Schema.define(:version => 0) do
   end
 
   create_table "pedidos", :force => true do |t|
-    t.string   "usuarioNombre",                   :default => "sin nombre",       :null => false
-    t.string   "usuarioDireccion",                :default => "sin direcciÃ³n"
     t.string   "usuarioTelefono",                 :default => "sin telefono"
-    t.string   "usuarioEmail",                    :default => "sin email"
     t.text     "usuarioComentario"
-    t.datetime "fecha",                                                           :null => false
-    t.string   "estado",            :limit => 50, :default => "sin estado",       :null => false
+    t.datetime "fecha",                                                       :null => false
+    t.string   "estado",            :limit => 50, :default => "sin estado",   :null => false
     t.text     "lineasPedido"
     t.integer  "gastosEnvio",                     :default => 0
     t.integer  "total",                           :default => 0
-    t.integer  "subtotal",                        :default => 0,                  :null => false
-    t.boolean  "esBroma",                         :default => false,              :null => false
+    t.integer  "subtotal",                        :default => 0,              :null => false
+    t.boolean  "esBroma",                         :default => false,          :null => false
+    t.string   "usuarioCiudad",                                               :null => false
+    t.string   "usuarioPais",                                                 :null => false
+    t.string   "usuarioCp",                                                   :null => false
+    t.string   "usuarioNombre",                                               :null => false
+    t.string   "usuarioDireccion",                                            :null => false
+    t.string   "usuarioEmail",                                                :null => false
+    t.string   "tipoEnvio",                                                   :null => false
   end
 
 end

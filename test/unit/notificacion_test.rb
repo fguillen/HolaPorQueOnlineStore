@@ -17,11 +17,13 @@ class NotificacionTest < Test::Unit::TestCase
   end
 
   def test_enviar_pedido
+    pedido = Factory(:pedido)
+    
     @expected.subject = 'Notificacion#enviar_pedido'
     @expected.body    = read_fixture('enviar_pedido')
     @expected.date    = Time.now
 
-    assert_equal @expected.encoded, Notificacion.create_enviar_pedido(@expected.date).encoded
+    assert_equal @expected.encoded, Notificacion.create_enviar_pedido(pedido, 'host.com', @expected.date ).encoded
   end
 
   private
