@@ -18,18 +18,18 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 --
 -- Table structure for table `camisetas`
 --
-
-DROP TABLE IF EXISTS `camisetas`;
-CREATE TABLE IF NOT EXISTS `camisetas` (
-  `id` int(11) NOT NULL auto_increment,
-  `clave` varchar(255) NOT NULL,
-  `nombre` varchar(255) default 'sin nombre',
-  `texto` text,
-  `modelos` text,
-  `fotos` text,
-  `categorias` text,
-  PRIMARY KEY  (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=38 ;
+-- 
+-- DROP TABLE IF EXISTS `camisetas`;
+-- CREATE TABLE IF NOT EXISTS `camisetas` (
+--   `id` int(11) NOT NULL auto_increment,
+--   `clave` varchar(255) NOT NULL,
+--   `nombre` varchar(255) default 'sin nombre',
+--   `texto` text,
+--   `modelos` text,
+--   `fotos` text,
+--   `categorias` text,
+--   PRIMARY KEY  (`id`)
+-- ) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=38 ;
 
 --
 -- Dumping data for table `camisetas`
@@ -72,23 +72,23 @@ INSERT INTO `camisetas` (`id`, `clave`, `nombre`, `texto`, `modelos`, `fotos`, `
 -- Table structure for table `pedidos`
 --
 
-DROP TABLE IF EXISTS `pedidos`;
-CREATE TABLE IF NOT EXISTS `pedidos` (
-  `id` int(11) NOT NULL auto_increment,
-  `usuarioNombre` varchar(255) NOT NULL default 'sin nombre',
-  `usuarioDireccion` varchar(255) default 'sin direcciÃ³n',
-  `usuarioTelefono` varchar(255) default 'sin telefono',
-  `usuarioEmail` varchar(255) default 'sin email',
-  `usuarioComentario` text,
-  `fecha` datetime NOT NULL,
-  `estado` varchar(50) NOT NULL default 'sin estado',
-  `lineasPedido` text,
-  `gastosEnvio` int(11) default '0',
-  `total` int(11) default '0',
-  `subtotal` int(11) NOT NULL default '0',
-  `esBroma` tinyint(1) NOT NULL default '0',
-  PRIMARY KEY  (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=82 ;
+-- DROP TABLE IF EXISTS `pedidos`;
+-- CREATE TABLE IF NOT EXISTS `pedidos` (
+--   `id` int(11) NOT NULL auto_increment,
+--   `usuarioNombre` varchar(255) NOT NULL default 'sin nombre',
+--   `usuarioDireccion` varchar(255) default 'sin direcciÃ³n',
+--   `usuarioTelefono` varchar(255) default 'sin telefono',
+--   `usuarioEmail` varchar(255) default 'sin email',
+--   `usuarioComentario` text,
+--   `fecha` datetime NOT NULL,
+--   `estado` varchar(50) NOT NULL default 'sin estado',
+--   `lineasPedido` text,
+--   `gastosEnvio` int(11) default '0',
+--   `total` int(11) default '0',
+--   `subtotal` int(11) NOT NULL default '0',
+--   `esBroma` tinyint(1) NOT NULL default '0',
+--   PRIMARY KEY  (`id`)
+-- ) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=82 ;
 
 --
 -- Dumping data for table `pedidos`
