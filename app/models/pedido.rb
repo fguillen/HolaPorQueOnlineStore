@@ -114,7 +114,7 @@ class Pedido < ActiveRecord::Base
     #
     # enviar email
     #
-    Notificacion.deliver_enviar_pedido( @pedido )
+    Notificacion.deliver_enviar_pedido( self )
   end
   
   def total_precio
