@@ -1,5 +1,6 @@
 class PedidosController < ApplicationController
   
+  protect_from_forgery :except => [:notify]
   
   before_filter :usuario_autorizado, :only => [ :list, :edit, :update, :destroy ]
 
