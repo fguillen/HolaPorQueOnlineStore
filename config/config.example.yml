@@ -1,11 +1,23 @@
 development:
   user: hola
   pass: porque
+  paypal_url: https://www.sandbox.paypal.com/cgi-bin/webscr
+  paypal_seller: seller_1231200230_biz@gmail.com
+  paypal_cert_id: Z954BH8ATL6XC
+  paypal_secret: paypal_secret
   
 test:
   user: hola
   pass: porque
+  paypal_url: https://www.sandbox.paypal.com/cgi-bin/webscr
+  paypal_seller: seller_wadus_biz@gmail.com
+  paypal_cert_id: Z954BH8ATL6XC
+  paypal_secret: paypal_secret
     
 production:
   user: hola
   pass: porque
+  paypal_url: https://www.sandbox.paypal.com/cgi-bin/webscr
+  paypal_seller: seller_wadus_biz@gmail.com
+  paypal_cert_id: Z954BH8ATL6XC
+  paypal_secret: paypal_secret
