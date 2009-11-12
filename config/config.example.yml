@@ -3,7 +3,7 @@ development:
   pass: porque
   paypal_url: https://www.sandbox.paypal.com/cgi-bin/webscr
   paypal_seller: seller_1231200230_biz@gmail.com
-  paypal_cert_id: Z954BH8ATL6XC
+  paypal_cert_id: HTQWUYHPR82EW
   paypal_secret: paypal_secret
   host: tienda.holaporque.com
   
@@ -12,7 +12,7 @@ test:
   pass: porque
   paypal_url: https://www.sandbox.paypal.com/cgi-bin/webscr
   paypal_seller: seller_wadus_biz@gmail.com
-  paypal_cert_id: Z954BH8ATL6XC
+  paypal_cert_id: HTQWUYHPR82EW
   paypal_secret: paypal_secret
   host: tienda.holaporque.com
       
@@ -21,6 +21,6 @@ production:
   pass: porque
   paypal_url: https://www.sandbox.paypal.com/cgi-bin/webscr
   paypal_seller: seller_wadus_biz@gmail.com
-  paypal_cert_id: Z954BH8ATL6XC
+  paypal_cert_id: HTQWUYHPR82EW
   paypal_secret: paypal_secret
   host: tienda.holaporque.com

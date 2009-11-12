@@ -105,16 +105,16 @@ class Pedido < ActiveRecord::Base
       self.paypal_errors  = nil
       self.purchased_at   = Time.now
       self.estado         = Pedido::STATUS[:COMPLETED]
+      
+      #
+      # enviar email
+      #
+      Notificacion.deliver_enviar_pedido( self )
     else
       self.estado         = Pedido::STATUS[:PAYPAL_ERROR]
     end
     
     self.save!
-    
-    #
-    # enviar email
-    #
-    Notificacion.deliver_enviar_pedido( self )
   end
   
   def total_precio
