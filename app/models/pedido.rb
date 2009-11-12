@@ -98,7 +98,7 @@ class Pedido < ActiveRecord::Base
     self.paypal_errors << "status not equal: #{Pedido::STATUS[:COMPLETED]}, #{params[:payment_status]}"           if params[:payment_status] != Pedido::STATUS[:COMPLETED]  
     self.paypal_errors << "secret not equal: #{CONFIG[:paypal_secret]}, #{params[:secret]}"                       if params[:secret]         != CONFIG[:paypal_secret]  
     self.paypal_errors << "receiver_email not equal: #{CONFIG[:paypal_seller]}, #{params[:receiver_email]}"       if params[:receiver_email] != CONFIG[:paypal_seller] 
-    self.paypal_errors << "mc_gross not equal: #{self.total_precio}, #{params[:mc_gross]}"                        if params[:mc_gross]       != self.total_precio
+    self.paypal_errors << "mc_gross not equal: #{self.total_precio}.00, #{params[:mc_gross]}"                     if params[:mc_gross]       != "#{self.total_precio}.00"
     self.paypal_errors << "mc_currency not equal: EUR, #{params[:mc_currency]}"                                   if params[:mc_currency]    != "EUR"
 
     if self.paypal_errors.empty?
@@ -111,11 +111,10 @@ class Pedido < ActiveRecord::Base
     
     self.save!
     
-    # email notifications
-    self.send_email_notifications
-    
-    # twitter notification
-    # self.send_twitter_notifications
+    #
+    # enviar email
+    #
+    Notificacion.deliver_enviar_pedido( @pedido )
   end
   
   def total_precio

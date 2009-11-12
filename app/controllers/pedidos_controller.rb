@@ -58,6 +58,7 @@ class PedidosController < ApplicationController
     record_not_found and return  if @pedido.nil?
     
     @pedido.paypal_notificate( params )
+    
   
     render :nothing => true
   end
@@ -84,6 +85,11 @@ class PedidosController < ApplicationController
     
     if @pedido.estado == Pedido::STATUS[:COMPLETED]
       flash.now[:info] = 'El pago se ha realizado correctamente'
+
+      #
+      # vaciar carrito
+      # 
+      session[:carrito] = nil
     else
       flash.now[:error] = 'Algún problema ha ocurrido durante el pago, por favor contacta con nosotros.'
     end

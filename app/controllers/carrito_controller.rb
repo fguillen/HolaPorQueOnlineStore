@@ -106,17 +106,6 @@ class CarritoController < ApplicationController
       @pedido.total = @pedido.subtotal + @pedido.gastosEnvio
       
       if @pedido.save
-      
-        #
-        # enviar email
-        #
-        @host = request.host_with_port
-        Notificacion.deliver_enviar_pedido( @pedido, @host )
-
-        #
-        # vaciar carrito
-        # 
-        # session[:carrito] = nil
         redirect_to :controller => 'pedidos', :action => 'pagar', :id => @pedido.id
       else
         flash[:error] = 'Algún error al rellenar el formulario de pedido'
