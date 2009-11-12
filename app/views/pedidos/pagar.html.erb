@@ -1,0 +1,21 @@
+<h1>Pagar pedido</h1>
+
+<%= render :partial => @pedido %>
+
+<% form_tag( CONFIG[:paypal_url] ) do %>
+  <!-- PAYPAL parameters:INI -->
+  <%= hidden_field_tag :cmd, "_s-xclick" %>
+  <%=
+    hidden_field_tag( 
+      :encrypted,
+      @pedido.paypal_encrypted(
+        pedido_completado_url( @pedido ),
+        pedido_notificado_url( @pedido, :secret => CONFIG[:paypal_secret] )
+      )
+    )
+  %>
+  <!-- PAYPAL parameters:END -->
+  <p>
+    <%= submit_tag "Pagar con Paypal o Tarjeta de Crédito", :disabled => false, :disable_with => "Comunicando con Paypal..." %>
+  </p>
+<% end %>

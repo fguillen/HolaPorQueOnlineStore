@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091111220050) do
+ActiveRecord::Schema.define(:version => 20091112000152) do
 
   create_table "camisetas", :force => true do |t|
     t.string "clave",                                :null => false
@@ -21,22 +21,28 @@ ActiveRecord::Schema.define(:version => 20091111220050) do
   end
 
   create_table "pedidos", :force => true do |t|
-    t.string   "usuarioTelefono",                 :default => "sin telefono"
+    t.string   "usuarioTelefono",                      :default => "sin telefono"
     t.text     "usuarioComentario"
-    t.datetime "fecha",                                                       :null => false
-    t.string   "estado",            :limit => 50, :default => "sin estado",   :null => false
+    t.datetime "fecha",                                                            :null => false
+    t.string   "estado",                 :limit => 50, :default => "sin estado",   :null => false
     t.text     "lineasPedido"
-    t.integer  "gastosEnvio",                     :default => 0
-    t.integer  "total",                           :default => 0
-    t.integer  "subtotal",                        :default => 0,              :null => false
-    t.boolean  "esBroma",                         :default => false,          :null => false
-    t.string   "usuarioCiudad",                                               :null => false
-    t.string   "usuarioPais",                                                 :null => false
-    t.string   "usuarioCp",                                                   :null => false
-    t.string   "usuarioNombre",                                               :null => false
-    t.string   "usuarioDireccion",                                            :null => false
-    t.string   "usuarioEmail",                                                :null => false
-    t.string   "tipoEnvio",                                                   :null => false
+    t.integer  "gastosEnvio",                          :default => 0
+    t.integer  "total",                                :default => 0
+    t.integer  "subtotal",                             :default => 0,              :null => false
+    t.boolean  "esBroma",                              :default => false,          :null => false
+    t.string   "usuarioCiudad",                                                    :null => false
+    t.string   "usuarioPais",                                                      :null => false
+    t.string   "usuarioCp",                                                        :null => false
+    t.string   "usuarioNombre",                                                    :null => false
+    t.string   "usuarioDireccion",                                                 :null => false
+    t.string   "usuarioEmail",                                                     :null => false
+    t.string   "tipoEnvio",                                                        :null => false
+    t.text     "paypal_errors"
+    t.text     "paypal_notify_params"
+    t.text     "paypal_complete_params"
+    t.string   "paypal_status"
+    t.string   "transaction_id"
+    t.datetime "purchased_at"
   end
 
 end

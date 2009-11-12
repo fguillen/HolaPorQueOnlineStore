@@ -2,3 +2,4 @@ log/*
 config/database.yml
 config/config.yml
 tmp/*
+certs/*pem

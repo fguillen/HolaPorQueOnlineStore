@@ -116,8 +116,8 @@ class CarritoController < ApplicationController
         #
         # vaciar carrito
         # 
-        session[:carrito] = nil
-        redirect_to :controller => 'pedidos', :action => 'show', :id => @pedido.id
+        # session[:carrito] = nil
+        redirect_to :controller => 'pedidos', :action => 'pagar', :id => @pedido.id
       else
         flash[:error] = 'Algún error al rellenar el formulario de pedido'
         render :controller => 'carrito', :action => 'completar_pedido'
