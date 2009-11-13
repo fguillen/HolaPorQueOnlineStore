@@ -43,8 +43,7 @@ class PedidosController < ApplicationController
   
   def enviar_email
     @pedido = Pedido.find(params[:id])
-    @host = request.host_with_port
-    Notificacion.deliver_enviar_pedido( @pedido, @host )
+    Notificacion.deliver_enviar_pedido( @pedido )
     flash[:info] = 'Email enviado'
     render :action => 'show'
   end
