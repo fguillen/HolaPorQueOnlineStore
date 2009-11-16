@@ -4,4 +4,7 @@ config/config.yml
 tmp/*
 certs/*pem
 db/schema.rb
+config/categorias.txt
+config/gastos_envio.txt
+db/schema.db
 
