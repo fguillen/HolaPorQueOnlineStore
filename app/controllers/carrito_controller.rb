@@ -108,7 +108,7 @@ class CarritoController < ApplicationController
       if @pedido.save
         redirect_to :controller => 'pedidos', :action => 'pagar', :id => @pedido.id
       else
-        flash[:error] = 'Algún error al rellenar el formulario de pedido'
+        flash.now[:error] = 'Algún error al rellenar el formulario de pedido'
         render :controller => 'carrito', :action => 'completar_pedido'
       end
     end
