@@ -5,7 +5,7 @@ development:
   email_from: "Admin <admin@admin.com>"
   paypal_url: https://www.sandbox.paypal.com/cgi-bin/webscr
   paypal_seller: seller_1231200230_biz@gmail.com
-  paypal_cert_id: HTQWUYHPR82EW
+  paypal_cert_id: XXXXXX
   paypal_secret: paypal_secret
   host: tienda.holaporque.com
   smtp_server: smtp.test.net
@@ -20,7 +20,7 @@ test:
   email_from: "Admin <admin@admin.com>"
   paypal_url: https://www.sandbox.paypal.com/cgi-bin/webscr
   paypal_seller: seller_wadus_biz@gmail.com
-  paypal_cert_id: HTQWUYHPR82EW
+  paypal_cert_id: XXXXXX
   paypal_secret: paypal_secret
   host: tienda.holaporque.com
   smtp_server: smtp.test.net
@@ -31,11 +31,11 @@ test:
 production:
   user: hola
   pass: porque
-  admin_mails: "fguillen.mail+tiendahpq@gmail.com, holaporque@holaporque.com"
-  email_from: "HolaPorQue <holaporque@holaporque.com>"
+  admin_mails: admin@domain.com
+  email_from: "Admin <admin@admin.com>"
   paypal_url: https://www.sandbox.paypal.com/cgi-bin/webscr
   paypal_seller: seller_wadus_biz@gmail.com
-  paypal_cert_id: HTQWUYHPR82EW
+  paypal_cert_id: XXXXXX
   paypal_secret: paypal_secret
   host: tienda.holaporque.com
   smtp_server: smtp.test.net
