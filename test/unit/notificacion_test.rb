@@ -17,13 +17,19 @@ class NotificacionTest < Test::Unit::TestCase
   end
 
   def test_enviar_pedido
-    pedido = Factory(:pedido)
+    pedido = Factory(:pedido, :fecha => Time.parse( '2000/01/01 10:10:10 UTC' ) )
     
-    @expected.subject = 'Notificacion#enviar_pedido'
-    @expected.body    = read_fixture('enviar_pedido')
-    @expected.date    = Time.now
+    @expected.subject       = 'Tu pedido de la tienda de Hola Por Que'
+    @expected.body          = read_fixture('enviar_pedido.html')
+    @expected.to            = pedido.usuarioEmail
+    @expected.bcc           = CONFIG[:admin_mails]
+    @expected.from          = CONFIG[:email_from]
+    @expected.content_type  = 'text/html; charset=utf-8'
+    @expected.date          = Time.now
+    
+    mail = Notificacion.create_enviar_pedido(pedido, @expected.date )
 
-    assert_equal @expected.encoded, Notificacion.create_enviar_pedido(pedido, 'host.com', @expected.date ).encoded
+    assert_equal( @expected.encoded, mail.encoded )
   end
 
   private

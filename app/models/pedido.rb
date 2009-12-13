@@ -13,7 +13,13 @@ class Pedido < ActiveRecord::Base
     :WAIT_TRANSFER    => 'Pending confirmation of transfer'
   }
   
-  validates_presence_of :usuarioNombre, :usuarioDireccion, :usuarioEmail, :usuarioPais, :usuarioCiudad, :usuarioCp
+  validates_presence_of :usuarioNombre, 
+                        :usuarioDireccion, 
+                        :usuarioEmail, 
+                        :usuarioPais, 
+                        :usuarioCiudad, 
+                        :usuarioCp, 
+                        :tipoEnvio
   
   # t.string   "usuarioNombre",                   :null => false
   # t.string   "usuarioDireccion"
@@ -41,7 +47,7 @@ class Pedido < ActiveRecord::Base
   end
   
   def update_fecha
-    self.fecha = Time.now
+    self.fecha ||= Time.now
   end
   
   def paypal_encrypted( return_url, notify_url )

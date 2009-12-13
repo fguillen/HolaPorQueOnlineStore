@@ -17,5 +17,12 @@ end
 # t.boolean  "esBroma",                         :default => false,              :null => false
 
 Factory.define :pedido do |f|
+  f.usuarioNombre "User Name"
+  f.usuarioDireccion "User Address"
+  f.usuarioEmail "user@user.com"
+  f.usuarioCiudad "User City"
+  f.usuarioCp "12345"
+  f.usuarioPais "User Country"
+  f.tipoEnvio "Tipo envío"
   # f.fecha Time.now
 end

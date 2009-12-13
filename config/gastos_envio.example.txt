@@ -1,3 +1,3 @@
-Paquete Azul España, 20
-Paquete Europa, 30
-Paquete resto del Mundo, 40
+pepe,37
+maria,30
+juan,40

@@ -1,28 +1,2 @@
 es:
-  categories:
-    title_home: "Inicio"
-    title_films: "Cine | Cortometrajes"
-    title_tv: "Televisión"
-    title_publicity: "Publicidad"
-    title_biography: "CV | Biografía"
-    title_other: "Otro Trabajos"
-    title_press: "Prensa"
-    title_blog: "Blog"
-    title_contact: "Contacto"
-    
-  views:
-    film_maker: "Realizador"
-    
-  activerecord:
-    models:
-      pedido: "Pedido"
-      camiseta: "Camiseta"
-
-    attributes:
-      pedido: 
-        usuarioNombre: "Nombre"
-        usuarioDireccion: "Dirección"
-        usuarioCiudad: "Ciudad"
-        usuarioPais: "Pais"
-        usuarioEmail: "Email"
-        usuarioCp: "Código Postal"
+  hello: "Hola"
