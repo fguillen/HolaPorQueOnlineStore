@@ -1,6 +1,6 @@
 class CamisetasController < ApplicationController
 
-  before_filter :usuario_autorizado, :only => [ :new, :create, :edit, :update, :destroy ]
+  before_filter :usuario_autorizado, :only => [ :new, :create, :edit, :update, :destroy, :admin_index, :sort ]
 
 
   # GETs should be safe (see http://www.w3.org/2001/tag/doc/whenToUseGet.html)
