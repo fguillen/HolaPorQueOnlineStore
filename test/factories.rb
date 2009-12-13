@@ -26,3 +26,9 @@ Factory.define :pedido do |f|
   f.tipoEnvio "Tipo envío"
   # f.fecha Time.now
 end
+
+
+Factory.define :pagina do |f|
+  f.title "Page title"
+  f.text "Page text"
+end

@@ -478,3 +478,6 @@ border: 2px dotted red;
 padding: 10px;
 }
 
+
+li .handle { color: #777; cursor: move; font-size: 12px; }￼  
+

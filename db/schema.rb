@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091112000152) do
+ActiveRecord::Schema.define(:version => 20091213024932) do
 
   create_table "camisetas", :force => true do |t|
     t.string "clave",                                :null => false
@@ -18,6 +18,15 @@ ActiveRecord::Schema.define(:version => 20091112000152) do
     t.text   "modelos"
     t.text   "fotos"
     t.text   "categorias"
+  end
+
+  create_table "paginas", :force => true do |t|
+    t.string   "title",                         :null => false
+    t.text     "text",                          :null => false
+    t.boolean  "is_link",    :default => false
+    t.integer  "position",   :default => 0
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "pedidos", :force => true do |t|

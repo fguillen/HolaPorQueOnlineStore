@@ -1,4 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :paginas, :collection => { :sort => :post}
+
   map.root :controller => "camisetas", :action => 'portada'
 
   map.pedido_completado '/pedidos/completado/:id', :controller => 'pedidos', :action => 'complete'

@@ -1,0 +1,17 @@
+<h1>Todas las páginas</h1>
+
+<ul id="paginas">
+<% @paginas.each do |pagina| %>
+  <% content_tag_for :li, pagina do %>  
+    <%= pagina.title %> | 
+    <%= link_to 'Mostrar', pagina %> |
+    <%= link_to 'Editar', edit_pagina_path(pagina) %> |
+    <%= link_to 'Borrar', pagina, :confirm => '¿Estás seguro?', :method => :delete %> |
+    <span class="handle">[arrastrar]</span>
+  <% end %>
+<% end %>
+</ul>
+
+<%= sortable_element( 'paginas', :url => sort_paginas_url, :handle => 'handle' ) %>
+
+<%= link_to 'Nueva pagina', new_pagina_path %>

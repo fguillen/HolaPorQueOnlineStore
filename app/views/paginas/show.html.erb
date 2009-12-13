@@ -1,0 +1,9 @@
+<h1><%= @pagina.title %></h1>
+<%= simple_format( @pagina.text ) %>
+
+<% if session[:role] == 'admin' %>
+<ul class="administracion">
+  <li><%= link_to 'Editar', edit_pagina_path(@pagina) %></li>
+  <li><%= link_to 'Listar Todas', paginas_path %></li>
+</ul>
+<% end %>
