@@ -368,8 +368,8 @@ padding-bottom: 20px;
 margin: 10px 0px;
 padding: 0px;
 font-size: 10px;
-
 }
+
 
 #pie ul.pie_links a{
 text-decoration: none;
@@ -386,6 +386,9 @@ border-right: 1px solid black;
 padding-right: 3px;
 }
 
+#pie ul.pie_links li:last-child{
+border-right: 0px solid black;
+}
 
 #pie p{
 color: #fff;
