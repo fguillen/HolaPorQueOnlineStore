@@ -46,4 +46,7 @@
 <p><strong>Teléfono:</strong> <%= pedido.usuarioTelefono %></p>
 <p><strong>Comentario:</strong> <%= pedido.usuarioComentario %></p>
 <p><strong>Fecha:</strong> <%= pedido.fecha %></p>
+<% if pedido.mailing %>
+  <p><strong>Además quiere apuntarse a nuestra lista de correo</strong></p>
+<% end %>
 </div>

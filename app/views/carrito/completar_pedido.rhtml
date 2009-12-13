@@ -78,6 +78,11 @@
   <p><%= f.label :usuarioTelefono, "Teléfono", :class => 'mandatory' %>
     <small>Ejemplo: 600600600, ó 0033600600600 si no es un teléfono de España</small><br/>
   <%= f.text_field :usuarioTelefono  %></p>
+  
+  <p><%= f.check_box :mailing  %>
+  <%= f.label :mailing, "Además quiero apuntarme a vuestro boletín y punto" %>
+    <small>Marcar la casilla si deseas apuntarte a nuestra lista de correo</small><br/>
+  </p>
 
   <p><%= f.label :usuarioComentario, "Comentarios o notas sobre tu pedido", :class => 'mandatory' %><br/>
   <%= f.text_area :usuarioComentario, :rows => 3  %></p>

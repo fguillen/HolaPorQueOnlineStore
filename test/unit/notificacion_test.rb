@@ -28,6 +28,9 @@ class NotificacionTest < Test::Unit::TestCase
     @expected.date          = Time.now
     
     mail = Notificacion.create_enviar_pedido(pedido, @expected.date )
+    
+    # puts mail.body
+    # File.open( "#{RAILS_ROOT}/test/fixtures/notificacion/enviar_pedido.html", 'w' ) { |f| f.write mail.body }
 
     assert_equal( @expected.encoded, mail.encoded )
   end

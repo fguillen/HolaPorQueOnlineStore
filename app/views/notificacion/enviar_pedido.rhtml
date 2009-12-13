@@ -63,7 +63,11 @@
   <p style="font-family: verdana, arial, helvetica, sans-serif; font-size: 10px; margin: 0px"><strong>Email:</strong> <%= @pedido.usuarioEmail %></p>
   <p style="font-family: verdana, arial, helvetica, sans-serif; font-size: 10px; margin: 0px"><strong>Teléfono:</strong> <%= @pedido.usuarioTelefono %></p>
   <p style="font-family: verdana, arial, helvetica, sans-serif; font-size: 10px; margin: 0px"><strong>Comentario:</strong> <%= @pedido.usuarioComentario %></p>
-  <p style="font-family: verdana, arial, helvetica, sans-serif; font-size: 10px; margin: 0px"><strong>Fecha:</strong> <%= @pedido.fecha %></p>  
+  <p style="font-family: verdana, arial, helvetica, sans-serif; font-size: 10px; margin: 0px"><strong>Fecha:</strong> <%= @pedido.fecha %></p>
+
+  <% if @pedido.mailing %>
+    <p style="font-family: verdana, arial, helvetica, sans-serif; font-size: 10px; margin: 0px"><strong>Además quiero apuntarme a vuestra lista de correo</strong></p>
+  <% end %>
   
     </div>
   </div>

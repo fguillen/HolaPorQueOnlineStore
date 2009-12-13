@@ -81,6 +81,7 @@ class CarritoController < ApplicationController
       @pedido.usuarioTelefono = params[:pedido][:usuarioEelefono]
       @pedido.usuarioComentario = params[:pedido][:usuarioComentario]
       @pedido.usuarioCp = params[:pedido][:usuarioCp]
+      @pedido.mailing = params[:pedido][:mailing]
 
       
       if @pedido.esBroma == nil
