@@ -12,7 +12,7 @@
 </script>
 
 <% for camiseta in @camisetas %>
-	<div class="camiseta">
+	<div class="camiseta_listado">
 		<%= image_tag camiseta.foto_principal, :class => 'principal', :id => "foto_camiseta_#{camiseta.id}" %>
     <div class="camiseta-descripcion">
   		<h3><%= camiseta.nombre %></h3>

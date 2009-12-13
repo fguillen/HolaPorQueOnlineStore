@@ -87,4 +87,24 @@ class CamisetasControllerTest < ActionController::TestCase
       Camiseta.find(camiseta.id)
     }
   end
+  
+  def test_admin_index
+    5.times{ Factory(:camiseta) }
+    get(:admin_index)
+    
+    assert_response :success
+    assert_equal( 5, assigns(:camisetas).size )
+  end
+  
+  def test_sort
+    camiseta_01 = Factory(:camiseta, :position => 1)
+    camiseta_02 = Factory(:camiseta, :position => 2)
+    
+    assert_equal( [camiseta_01, camiseta_02], Camiseta.all )
+    
+    get( :sort, :camisetas_list => [camiseta_02.id, camiseta_01.id] )
+    assert_response :success
+    
+    assert_equal( [camiseta_02, camiseta_01], Camiseta.all )
+  end
 end

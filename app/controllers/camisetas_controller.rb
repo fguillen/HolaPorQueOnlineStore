@@ -72,5 +72,15 @@ class CamisetasController < ApplicationController
    @camisetas = Camiseta.find(:all)
   end
   
+  def admin_index
+    @camisetas = Camiseta.all
+  end
+  
+  def sort
+    params[:camisetas_list].each_with_index do |id, index|  
+      Camiseta.find( id ).update_attribute( :position, index+1 )
+    end  
+    render :nothing => true
+  end
 
 end

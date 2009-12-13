@@ -1,4 +1,7 @@
 class Camiseta < ActiveRecord::Base
+  
+  default_scope :order => 'position asc'
+  
   def lista_modelos
     #modelosCamiseta = [ Modelo.new( "Elige un modelo,0,0" ) ]
     modelosCamiseta = []

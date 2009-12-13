@@ -1,0 +1,12 @@
+<h2>Ordenar Camisetas</h2>
+
+<ul id="camisetas_list">
+<% for camiseta in @camisetas %>
+  <% content_tag_for :li, camiseta do %>  
+    <%= camiseta.nombre %> | <span class="handle">[arrastrar]</span>
+  <% end %>
+<% end %>
+</ul>
+
+<%= sortable_element( 'camisetas_list', :url => sort_camisetas_url, :handle => 'handle' ) %>
+

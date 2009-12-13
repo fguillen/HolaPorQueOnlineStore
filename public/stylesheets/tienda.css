@@ -154,7 +154,7 @@ border: 0px;
 *
 */ 
 
-.camiseta{
+.camiseta_listado{
 margin: 10px 0px;
 clear:left;
 width: 884px;
@@ -170,12 +170,12 @@ position: relative;
   bottom:20px;
 }
 
-.camiseta p{
+.camiseta_listado p{
 font-family: Arial;
 }
 
 
-.camiseta img.principal {
+.camiseta_listado img.principal {
 float:left;
 margin-right: 10px;
 }
