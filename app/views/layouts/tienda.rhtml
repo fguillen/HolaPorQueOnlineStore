@@ -41,7 +41,7 @@
       </ul>
     </div>
     <div id="buscadores">
-      <div>
+      <div id="categories">
       listado de lo disponible
       <% form_tag :controller => 'camisetas', :action => 'buscar_por_id' do %>
       <select name="id">
@@ -52,7 +52,7 @@
       <%= submit_tag "mostrar" %>
       <% end %>
       </div>
-      <div>
+      <div id="searcher">
       buscar algo en concreto
       <% form_tag :controller => 'camisetas', :action => 'buscar_por_nombre' do %>
       <input type="text" name="nombre" />

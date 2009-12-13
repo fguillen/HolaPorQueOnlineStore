@@ -1,3 +1,5 @@
+
+
 #alertas-info{
 	clear: left;
 	margin: 40px 20px 0px 20px;
@@ -16,20 +18,34 @@
 
 #buscadores div{
 float: left;
+/*padding: 10px 50px 10px 45px;*/
 }
 
-#carrito{
-text-align: right;
-font-size: 20px;
-font-weight: bold;
+#buscadores form{
+  margin: 0px;
+  padding: 0px;
 }
 
 
+#buscadores #categories{
+  width: 440px;
+}
+
+#buscadores #categories select{
+  width: 350px;
+}
+#buscadores #searcher{
+  width: 250px;
+}
 
 
 #buscadores #carrito{
 padding-top: 15px;
-padding-left: 105px;
+/*padding-left: 100px;*/
+text-align: right;
+font-size: 20px;
+font-weight: bold;
+width: 142px;
 }
 
 #carrito a{
@@ -219,7 +235,7 @@ margin-right: 20px;
 
 
 #contenido{
-padding: 10px 20px 10px 45px;
+padding: 10px 50px 10px 45px;
 clear: left;
 }
 
