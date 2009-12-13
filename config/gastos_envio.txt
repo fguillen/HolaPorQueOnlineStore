@@ -1,3 +1,0 @@
-pepe,15
-maria,30
-juan,40
