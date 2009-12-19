@@ -21,6 +21,10 @@
   <%= javascript_include_tag :defaults %>
 
   <%= stylesheet_link_tag 'tienda', 'pruebas', :media => 'all' %>
+  
+  <!--[if lt IE 8]>
+    <%= stylesheet_link_tag "ie", :media => 'all' %> 
+  <![endif]-->
     
   <title>Tienda de Hola Por Qué, serigrafía artística y camisetas</title>
 </head>

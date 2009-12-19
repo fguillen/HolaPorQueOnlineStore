@@ -119,7 +119,7 @@ width: 167px;
 margin: 5px 10px 5px 0px;
 float: left;
 width: 167px;
-height: 250px;
+height: 265px;
 }
 
 .camiseta_portada h3{
@@ -166,6 +166,7 @@ position: relative;
 
 .camiseta-descripcion{
   margin-left: 270px;
+  float: left;
   position:absolute;
   bottom:20px;
 }
@@ -183,6 +184,7 @@ margin-right: 10px;
 
 ul.minis {
   margin: 0px;
+  padding: 0px;
 }
 
 ul.minis li {
