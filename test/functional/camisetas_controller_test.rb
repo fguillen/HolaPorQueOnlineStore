@@ -89,6 +89,8 @@ class CamisetasControllerTest < ActionController::TestCase
   end
   
   def test_admin_index
+    CamisetasController.any_instance.expects(:usuario_autorizado).returns(true)
+    
     5.times{ Factory(:camiseta) }
     get(:admin_index)
     
@@ -97,6 +99,8 @@ class CamisetasControllerTest < ActionController::TestCase
   end
   
   def test_sort
+    CamisetasController.any_instance.expects(:usuario_autorizado).returns(true)
+    
     camiseta_01 = Factory(:camiseta, :position => 1)
     camiseta_02 = Factory(:camiseta, :position => 2)
     
